@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Mommy Early | Landing Page & Produk Digital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mommy Early membantu ibu-ibu pemula menata landing page Lynk.id agar rapi, hangat, dan dipercaya.">
+  <style>
+    :root {
+      --bg-pink: #fff6fb;
+      --bg-blue: #f4f7ff;
+      --card: #ffffff;
+      --primary: #f7a9c4;
+      --primary-dark: #f06fa8;
+      --accent: #8cc6f7;
+      --accent-dark: #498ac0;
+      --text-main: #241b33;
+      --text-soft: #6d647f;
+      --border: #f2dce9;
+      --radius: 16px;
+      --shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, var(--bg-pink), #ffffff 40%, var(--bg-blue) 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 22px 16px 42px;
+    }
+
+    /* PROFILE */
+    .profile-card {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 18px 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .avatar-wrap {
+      width: 82px;
+      height: 82px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 3px solid #ffe0f0;
+      background: #ffeef7;
+      flex-shrink: 0;
+    }
+
+    .profile-main h1 {
+      font-size: 20px;
+      margin: 0 0 4px;
+    }
+
+    .profile-main p {
+      margin: 0 0 8px;
+      font-size: 14px;
+      color: var(--text-soft);
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .social-links a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #fff7fb;
+      border: 1px solid var(--border);
+    }
+
+    /* CATEGORY NAV */
+    .category-nav {
+      margin: 12px 0 18px;
+      background: linear-gradient(90deg, rgba(247,169,196,0.15), rgba(140,198,247,0.18));
+      border-radius: 999px;
+      padding: 8px 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      border: 1px solid rgba(242,220,233,0.9);
+    }
+
+    .category-label {
+      font-weight: 500;
+      color: var(--text-soft);
+      margin-right: 4px;
+    }
+
+    .cat-link {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid rgba(242,220,233,0.9);
+      cursor: pointer;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: background 0.15s, transform 0.1s, box-shadow 0.1s;
+    }
+
+    .cat-link span {
+      font-size: 14px;
+    }
+
+    .cat-link:hover {
+      background: #fef2f9;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transform: translateY(-1px);
+    }
+
+    .cat-link--blue {
+      border-color: rgba(140,198,247,0.6);
+      background: #f5f9ff;
+    }
+
+    /* PRODUCT & SECTIONS */
+    .section-title {
+      margin: 26px 0 6px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .section-note {
+      margin: 0 0 12px;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .product-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 14px 14px 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      margin-bottom: 14px;
+    }
+
+    .product-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .product-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 4px;
+    }
+
+    .product-sub {
+      font-size: 13px;
+      color: var(--text-soft);
+      margin: 0 0 10px;
+    }
+
+    /* SLIDER */
+    .product-image {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #f4e2ef;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #ffeef7, #e7f3ff);
+    }
+
+    .slider {
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .slide {
+      display: inline-block;
+      width: 100%;
+      vertical-align: top;
+    }
+
+    .slide img {
+      width: 100%;
+      height: auto;
+    }
+
+    .price-block {
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .price-block del {
+      color: #b4a5c0;
+      font-size: 12px;
+    }
+
+    .price-block strong {
+      color: var(--primary-dark);
+      font-size: 16px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      box-shadow: 0 6px 14px rgba(243, 139, 184, 0.4);
+    }
+
+    .btn-ghost {
+      background: #f5f9ff;
+      color: var(--accent-dark);
+      border: 1px solid rgba(140,198,247,0.6);
+    }
+
+    .product-note {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .free-badge {
+      display: inline-block;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #e5fbef;
+      color: #1f7a45;
+      margin-bottom: 6px;
+    }
+
+    .footer {
+      margin-top: 28px;
+      font-size: 11px;
+      color: var(--text-soft);
+      text-align: center;
+    }
+
+    @media (max-width: 520px) {
+      .profile-card {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      .avatar-wrap {
+        width: 74px;
+        height: 74px;
+      }
+      .category-nav {
+        border-radius: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- PROFILE -->
+    <section class="profile-card">
+      <div class="avatar-wrap">
+        <!-- GANTI FOTO PROFIL DI SINI -->
+        <img src="https://via.placeholder.com/300x300.png?text=Mommy+Early" alt="Foto Mommy Early">
+      </div>
+
+      <div class="profile-main">
+        <h1>Mommy Early | Landing Page & Produk Digital</h1>
+        <p>Guru matematika & ibu dua anak. Bantu ibu-ibu pemula bikin landing page Lynk.id yang rapi & dipercaya ☺</p>
+
+        <div class="tagline">“Biar landing page & AI yang bekerja, ibu fokus berkarya.” 🥰</div>
+
+        <div class="social-links">
+          <a href="https://www.instagram.com/mommy.early" target="_blank">Instagram</a>
+          <a href="https://www.threads.net/@mommy.early" target="_blank">Threads</a>
+          <a href="https://lynk.id/mommy.early" target="_blank">Lynk.id</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORY NAV -->
+    <nav class="category-nav">
+      <span class="category-label">Loncat ke:</span>
+      <a class="cat-link" href="#lp"><span>📄</span>Landing Page</a>
+      <a class="cat-link cat-link--blue" href="#ai-tools"><span>🤖</span>AI Tools</a>
+      <a class="cat-link" href="#komunitas"><span>🤗</span>Komunitas</a>
+    </nav>
+
+    <!-- LANDING PAGE SECTION -->
+    <section id="lp">
+      <h2 class="section-title">Landing Page x Lynk.id</h2>
+      <p class="section-note">Produk dan layanan untuk bantu kamu punya landing page rapi & enak dilihat.</p>
+
+      <!-- TEMPLATE LANDING PAGE -->
+      <article class="product-card">
+        <div class="product-tag">Template Landing Page</div>
+        <h3 class="product-title">Template Landing Page Lynk.id – Pemula Friendly</h3>
+        <p class="product-sub">
+          Struktur simpel, tinggal ganti teks & foto. Cocok buat kamu yang baru mulai jualan digital di Lynk.id.
+        </p>
+
+        <div class="product-image">
+          <div class="slider">
+            <!-- SLIDE 1 -->
+            <div class="slide">
+              <img src="template-lp-1.jpg" alt="Preview template landing page 1">
+            </div>
+            <!-- SLIDE 2 (OPSIONAL: GANTI LINK & ALT) -->
+            <div class="slide">
+              <img src="template-lp-2.jpg" alt="Preview template landing page 2">
+            </div>
+          </div>
+        </div>
+
+        <div class="price-block">
+          <div><del>Rp 23.000</del></div>
+          <div><strong>Rp 10.000</strong></div>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn btn-ghost" href="https://lynk.id/mommy.early" target="_blank">Lihat detail</a>
+          <a class="btn btn-primary" href="https://lynk.id/mommy.early" target="_blank">Beli sekarang</a>
+        </div>
+
+        <div class="product-note">
+          Cocok untuk: IRT & pekerja yang pengen punya landing page cepat, tanpa pusing mikirin struktur dan urutan konten.
+        </div>
+      </article>
+
+      <!-- PRIVAT 1 ON 1 -->
+      <article class="product-card">
+        <div class="product-tag">Privat 1 on 1</div>
+        <h3 class="product-title">Privat 1 on 1 Belajar Bikin Landing Page</h3>
+        <p class="product-sub">
+          Sesi privat via Gmeet/online, belajar bareng dari nol sampai halamanmu jadi. Kamu bisa tanya apa saja, kita praktek langsung di layar.
+        </p>
+
+        <div class="product-image">
+          <div class="slider">
+            <div class="slide">
+              <img src="https://via.placeholder.com/800x450.png?text=Privat+LP+1" alt="Privat landing page 1">
+            </div>
+            <div class="slide">
+              <img src="https://via.placeholder.com/800x450.png?text=Privat+LP+2" alt="Privat landing page 2">
+            </div>
+          </div>
+        </div>
+
+        <div class="price-block">
+          <div>Paket 1: <strong>Rp 35.000</strong></div>
+          <div>Paket 2: <strong>Rp 45.000</strong></div>
+          <div>Paket 3: <strong>Rp 55.000</strong></div>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn btn-ghost"
+             href="https://wa.me/6285727023911?text=Halo%20Mommy%20Early,%20aku%20mau%20tanya%20detail%20Privat%201%20on%201%20bikin%20landing%20page"
+             target="_blank">
+             Tanya detail paket
+          </a>
+          <a class="btn btn-primary"
+             href="https://wa.me/6285727023911?text=Halo%20Mommy%20Early,%20aku%20mau%20daftar%20Privat%201%20on%201%20bikin%20landing%20page"
+             target="_blank">
+             Daftar privat
+          </a>
+        </div>
+
+        <div class="product-note">
+          Cocok untuk: kamu yang pengen paham konsep + bisa ngulik sendiri, tapi tetap pengen ada yang dampingi pelan-pelan 😇
+        </div>
+      </article>
+
+      <!-- JASA CUSTOM LP -->
+      <article class="product-card">
+        <div class="product-tag">Jasa Custom LP</div>
+        <h3 class="product-title">Jasa Custom Landing Page Lynk.id – Done For You</h3>
+        <p class="product-sub">
+          Kamu cerita tentang produk dan target pembeli, aku bantu buatkan landing page Lynk.id yang rapi, lembut, dan tetap selling. Kamu tinggal pakai.
+        </p>
+
+        <div class="product-image">
+          <div class="slider">
+            <div class="slide">
+              <img src="https://via.placeholder.com/800x450.png?text=Custom+LP+1" alt="Custom landing page 1">
+            </div>
+            <div class="slide">
+              <img src="https://via.placeholder.com/800x450.png?text=Custom+LP+2" alt="Custom landing page 2">
+            </div>
+          </div>
+        </div>
+
+        <div class="price-block">
+          <div>Start from <strong>Rp 45.000</strong></div>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn btn-ghost"
+             href="https://wa.me/6285727023911?text=Halo%20Mommy%20Early,%20aku%20mau%20tanya%20tentang%20jasa%20custom%20landing%20page"
+             target="_blank">
+             Konsultasi dulu
+          </a>
+          <a class="btn btn-primary"
+             href="https://wa.me/6285727023911?text=Halo%20Mommy%20Early,%20aku%20siap%20booking%20jasa%20custom%20landing%20page"
+             target="_blank">
+             Booking slot
+          </a>
+        </div>
+
+        <div class="product-note">
+          Cocok untuk: buibu super sibuk yang pengen hasil jadi, tanpa harus pusing teknis & desain sama sekali.
+        </div>
+      </article>
+    </section>
+
+    <!-- AI TOOLS SECTION -->
+    <section id="ai-tools">
+      <h2 class="section-title">AI Tools Mommy Early</h2>
+      <p class="section-note">Biar ada “asisten digital” yang bantu ibu-ibu, tanpa harus begadang sendirian.</p>
+
+      <!-- CUSTOM GPTS -->
+      <article class="product-card">
+        <div class="product-tag">Custom GPTs</div>
+        <h3 class="product-title">Custom GPTs AI – Mommy Early</h3>
+        <p class="product-sub">
+          AI versi Mommy Early yang bisa kamu ajak diskusi seputar landing page, ide konten, dan jualan digital dengan bahasa lembut & mudah dipahami.
+        </p>
+
+        <div class="product-image">
+          <div class="slider">
+            <div class="slide">
+              <img src="https://via.placeholder.com/800x450.png?text=AI+Mommy+Early+1" alt="Custom GPT Mommy Early 1">
+            </div>
+            <div class="slide">
+              <img src="https://via.placeholder.com/800x450.png?text=AI+Mommy+Early+2" alt="Custom GPT Mommy Early 2">
+            </div>
+          </div>
+        </div>
+
+        <div class="price-block">
+          <div><del>Rp 27.000</del></div>
+          <div><strong>Rp 12.000</strong></div>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn btn-ghost" href="https://lynk.id/mommy.early" target="_blank">Lihat detail</a>
+          <a class="btn btn-primary" href="https://lynk.id/mommy.early" target="_blank">Ambil akses</a>
+        </div>
+
+        <div class="product-note">
+          Cocok untuk: ibu yang pengen punya teman brainstorming 24 jam soal desain, copy, dan ide jualan digital.
+        </div>
+      </article>
+    </section>
+
+    <!-- KOMUNITAS SECTION -->
+    <section id="komunitas">
+      <h2 class="section-title">Belajar & Komunitas</h2>
+      <p class="section-note">Ruang aman buat ibu-ibu belajar pelan-pelan, bareng teman-teman yang juga lagi bertumbuh.</p>
+
+      <!-- GRUP SHARING GRATIS -->
+      <article class="product-card">
+        <span class="free-badge">GRATIS</span>
+        <h3 class="product-title">Grup Sharing Gratis – Ngulik Landing Page</h3>
+        <p class="product-sub">
+          Grup sharing santai untuk ngobrol tentang landing page, tips kecil, dan insight praktis. Cocok buat pemula yang masih suka bingung mulai dari mana.
+        </p>
+
+        <div class="product-image">
+          <div class="slider">
+            <div class="slide">
+              <img src="https://via.placeholder.com/800x450.png?text=Grup+Ngulik+LP" alt="Grup sharing ngulik LP">
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <!-- GANTI LINK GRUP DI SINI -->
+          <a class="btn btn-primary" href="https://chat.whatsapp.com/" target="_blank">Join grupnya</a>
+        </div>
+
+        <div class="product-note">
+          Harga: <strong>FREE</strong> 💕  
+          Kamu boleh datang sambil bawa rasa ragu, nanti pelan-pelan kita urai bareng.
+        </div>
+      </article>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      © <span id="year"></span> Mommy Early. All rights reserved.
+      <br>“Pelan-pelan rapiin toko digitalmu, bu. Nggak harus langsung sempurna, yang penting terus berjalan.” 🤗
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
